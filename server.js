@@ -11,7 +11,12 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin:["https://bop-grooming-frontend.vercel.app"],
+    method:["GET", "POST","PUT","DELETE"],
+    credentials:true
+    
+}));
 app.use(bodyParser.json());
 app.use('/api', bookingRoutes);
 
